@@ -1,19 +1,10 @@
-const {getUserQuery} = require('./get_User query')
+const {getUserQuery} = require('./get_user.query')
 const {validationResult} = require('express-validator');
 const {User:Users} = require('../../../../models/index');
 
 const getUser = async(req,res)=>{
-   
-// const users = await Users.findAll();
-// return res.send(users)
 
-    // Users.findAll()
-    // .then( userResponse => {
-    //   res.status( 200 ).json( userResponse )
-    // } )
-    // .catch( error => {
-    //   res.status( 400 ).send( error )
-    // } )
+
     try{
         
      const user = await getUserQuery();
