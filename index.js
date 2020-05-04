@@ -3,6 +3,12 @@ const app = express();
 app.use(express.json());
 
 require('./router')(app)
+const dotenv = require('dotenv')
+
+const config = dotenv.config();
+if (config.error)
+    throw config.error;
+
 // const config = require('./config/config')
     
 const port = 3000;

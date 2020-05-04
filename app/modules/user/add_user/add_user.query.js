@@ -1,4 +1,4 @@
-const {User:Users} = require('../../../../models')
+const {Users:Users} = require('../../../../models')
 
 const addUserQuery = async(body) => {
     return  Users.create({

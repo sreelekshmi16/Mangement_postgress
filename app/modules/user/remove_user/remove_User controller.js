@@ -1,4 +1,4 @@
-const { User: Users } = require('../../../../models/index');
+const { Users: Users } = require('../../../../models/index');
 
 
 const removeUser = async (req, res) => {
