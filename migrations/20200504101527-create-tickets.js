@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('tickets', {
+    return queryInterface.createTable("tickets", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,11 +14,11 @@ module.exports = {
       available_tickets: {
         type: Sequelize.INTEGER
       },
-      startTime:{
-        type:Sequelize.BIGINT
+      startTime: {
+        type: Sequelize.BIGINT
       },
-      endTime:{
-        type:Sequelize.BIGINT
+      endTime: {
+        type: Sequelize.BIGINT
       },
       createdAt: {
         allowNull: false,
@@ -31,6 +31,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('tickets');
+    return queryInterface.dropTable("tickets");
   }
 };
