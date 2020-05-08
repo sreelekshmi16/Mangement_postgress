@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 module.exports = (sequelize, DataTypes) => {
   const tickets = sequelize.define(
-    "tickets",
+    'tickets',
     {
       movie_name: DataTypes.STRING,
       available_tickets: DataTypes.INTEGER,
@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   tickets.associate = function (models) {
     this.hasMany(models.bookings, {
-      foreignKey: "ticket_id"
+      foreignKey: 'ticket_id'
     });
   };
   return tickets;

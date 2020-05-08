@@ -7,7 +7,8 @@ const Op = Sequelize.Op;
 
 module.exports = {
 
-secret: 'mysecret',
+// secret: 'mysecret',
+secret : process.env.SECRET,
 
 username: process.env.POSTGRES_DB_USERNAME,
 
@@ -37,4 +38,4 @@ $like: Op.like
 
 }
 
-}
+};

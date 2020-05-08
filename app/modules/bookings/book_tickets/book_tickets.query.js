@@ -34,6 +34,7 @@ const decrementTicketCount = async (body,transaction) => {
     }
   );
   console.log('updated ticket count', ticket);
+
 };
 
 module.exports = { bookTicketsQuery, decrementTicketCount };
