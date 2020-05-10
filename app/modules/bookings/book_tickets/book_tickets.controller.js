@@ -3,6 +3,7 @@ const {
   bookTicketsQuery,
   decrementTicketCount
 } = require('./book_tickets.query');
+// const {verifyToken}=require('../../../helpers/jwt.helper');
 
 const { sequelize } = require('../../../../models/index');
 const bookTickets = async (req, res) => {
@@ -12,6 +13,10 @@ const bookTickets = async (req, res) => {
     if (!validation.isEmpty()) {
       return res.send(validation);
     }
+
+    // const decoded = verifyToken(req,res);
+    // console.log(decoded);
+  
     transaction = await sequelize.transaction();
     await Promise.all([
       bookTicketsQuery(req, transaction),
