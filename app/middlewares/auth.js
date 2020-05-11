@@ -11,13 +11,15 @@ const authorize = (req,res,next)=>{
       if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
       req.user = decoded;
       console.log('req user object',req.user);
+      next();
     });
-    next();
+ 
     }
     catch(e){
-            res.status(400).send('invalid token');
+        console.log('error token',e.message);
+            // res.status(400).send('invalid token');
     }
-
+  
 
 };
 

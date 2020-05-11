@@ -6,7 +6,9 @@ module.exports = (sequelize, DataTypes) => {
       movie_name: DataTypes.STRING,
       available_tickets: DataTypes.INTEGER,
       startTime: DataTypes.BIGINT,
-      endTime: DataTypes.BIGINT
+      endTime: DataTypes.BIGINT,
+      IsDeleted:DataTypes.BOOLEAN,
+      CreatedBy_Id:DataTypes.INTEGER
     },
     {}
   );

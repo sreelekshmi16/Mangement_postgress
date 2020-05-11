@@ -5,7 +5,9 @@ const addTicketsQuery = async (req,startTime,endTime) => {
     movie_name: req.body.movie_name,
     available_tickets: req.body.available_tickets,
     startTime: startTime,
-    endTime: endTime
+    endTime: endTime,
+    IsDeleted: req.body.IsDeleted ? req.body.IsDeleted : false,
+    CreatedBy_Id:req.body.CreatedBy_Id
   });
   console.log(newTicket);
   // return newTicket.save();

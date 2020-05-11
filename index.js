@@ -14,7 +14,7 @@ if (config.error)
 
 
 
-const port = 5000;
+const port = 7000;
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
 global.__base = `${__dirname}/`;

@@ -13,7 +13,7 @@ const addTicket = async (req, res) => {
     if (!validation.isEmpty()) return res.send(validation);
     const result = await addTicketsQuery(req,startTime,endTime);
     // const result = await addTicketQuery(req,startTime,endTime);
-    return res.send(result);
+    return res.send('Ticket Created');
   } catch (e) {
     res.send({ status: 400, error: true });
     console.log(e.message);
