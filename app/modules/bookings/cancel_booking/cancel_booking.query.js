@@ -6,7 +6,7 @@ const Op = Sequelize.Op;
 const findUser = async(bookingId)=>{
 
 console.log('Id',bookingId);
- return await Bookings.findOne({
+ return  Bookings.findOne({
   where:{
         id:{
                 [Op.eq] : bookingId
@@ -18,8 +18,8 @@ console.log('Id',bookingId);
 
 const deleteBookingQuery = async(bookingId,transaction)=>{
 
-  console.log('user matchedddddddddddddddddd');
-return await Bookings.update({
+ 
+return  Bookings.update({
     isDeleted : true
 },{
     where:{
@@ -42,7 +42,7 @@ const ticket = await Bookings.findOne({
 
 });
 console.log('current ticket row',ticket.quantity,ticket.ticket_id);
-   return await Tickets.update(
+   return  Tickets.update(
     {
         available_tickets:Sequelize.literal(`available_tickets + ${ticket.quantity}`)
       },

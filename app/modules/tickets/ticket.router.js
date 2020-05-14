@@ -6,14 +6,14 @@ const deleteTicket = require('./delete_ticket/delete_ticket.controller');
 const deleteTicketValidator = require('./delete_ticket/delete_ticket.validator');
 const editTicket = require('./edit_tickets/edit_tickets.controller');
 const editTicketValidator = require('./edit_tickets/edit_tickets.validator');
-
+const {authorize} = require('../../middlewares/auth');
 
 
 module.exports = () => {
     router.route('/api/tickets')
-        .post(addTicketValidator, addTicket);
+        .post(authorize,addTicketValidator, addTicket);
     router.route('/api/tickets/:id')
-        .delete(deleteTicketValidator,deleteTicket)
-        .put(editTicket,editTicketValidator);
+        .delete(authorize,deleteTicketValidator,deleteTicket)
+        .put(authorize,editTicket,editTicketValidator);
     return router;
 };

@@ -13,5 +13,4 @@ const editBookingQuery = async(req) => {
   );
   console.log(edit);
 };
-
 module.exports = { editBookingQuery };

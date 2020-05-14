@@ -9,6 +9,7 @@ const addTicket = async (req, res) => {
     let endTime = moment.utc({ years:s_year, months:s_month, date:s_date, hours:e_hour, minutes:e_min}).valueOf();
     console.log(endTime);
   try {
+    console.log('user object undo',req.user);
     let validation = validationResult(req);
     if (!validation.isEmpty()) return res.send(validation);
     const result = await addTicketsQuery(req,startTime,endTime);

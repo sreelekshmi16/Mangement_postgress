@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.4.1",
     "glob": "^7.1.6",
+    "http-status-codes": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.25.3",
     "pg": "^8.0.3",

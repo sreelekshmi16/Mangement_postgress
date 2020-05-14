@@ -6,6 +6,7 @@ const {
 
 const Op = Sequelize.Op;
 const bookTicketsQuery = async (req,transaction) => {
+  
   const {ticket_id, quantity } = req.body;
   const user_id = req.params.id;
   console.log('userrrrr',user_id);
@@ -17,7 +18,7 @@ const bookTicketsQuery = async (req,transaction) => {
   };
   console.log(booking);
 
-  const bookTickets = await Bookings.create(booking,{transaction});
+  const bookTickets =  await Bookings.create(booking,{transaction});
   console.log(bookTickets);
 };
 const decrementTicketCount = async (body,transaction) => {
