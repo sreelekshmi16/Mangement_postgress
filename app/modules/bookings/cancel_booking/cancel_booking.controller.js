@@ -1,26 +1,39 @@
 
 const {validationResult} = require('express-validator');
-const {deleteBookingQuery,updateTicketCount} = require('./cancel_booking.query');
+const {deleteBookingQuery,updateTicketCount,findUser} = require('./cancel_booking.query');
+// const {authorize} = require('../../../middlewares/auth');
 const {sequelize} = require('../../../../models/index');
 const deleteBooking = async(req,res)=>{
-
+  let transaction = null;
+   
 try{
-    let transaction = null;
-    transaction = sequelize.transaction();
+   
     const validation = validationResult(req);
     if(!validation.isEmpty())
     return res.send(validation);
+   
+    
+console.log('user in req',req.user.id);
 
+transaction = await sequelize.transaction();
+const user = await findUser(req.params.id);
+
+if(user.user_id !== req.user.id)
+res.send('invalid user');
+ 
 await Promise.all([  
-     deleteBookingQuery(req.params,transaction),
-      updateTicketCount(req.params,transaction)
+    deleteBookingQuery(req.params.id,transaction),
+    updateTicketCount(req.params.id,transaction)
 ]);
-  res.send('success');
+await transaction.commit();
+return res.send('success');
 
 }
 
 catch(e){
+await transaction.rollback();
 console.log(e.message);
+return res.send({ status: 400, error: e.message });
 }
 
 };
